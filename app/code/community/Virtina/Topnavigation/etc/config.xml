@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Virtina
+ * @package    Virtina_Topnavigation
+ * @copyright  Copyright (c) 2015-2016 Virtina. (http://www.virtina.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<config>
+    <modules>
+        <Virtina_Topnavigation>
+            <version>0.0.1</version>
+        </Virtina_Topnavigation>
+    </modules>
+    <frontend>
+        <routers>
+            <topnavigation>
+                <use>standard</use>
+                <args>
+                    <module>Virtina_Topnavigation</module>
+                    <frontName>topnavigation</frontName>
+                </args>
+            </topnavigation>
+        </routers>
+        <layout>
+            <updates>
+                <topnavigation>
+                    <file>topnavigation.xml</file>
+                </topnavigation>
+            </updates>
+        </layout>		
+    </frontend>
+    <admin>
+        <routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<virtina_topnavigation after="Mage_Adminhtml">Virtina_Topnavigation_Adminhtml</virtina_topnavigation>
+					</modules>
+				</args>
+			</adminhtml>
+        </routers>
+    </admin> 
+    <adminhtml>
+		<menu>
+			<topmenu module="topnavigation">
+				<title>Top Menu</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="topnavigation">
+						<title>Manage Menu Items</title>
+						<sort_order>0</sort_order>
+						<action>adminhtml/topnavigation/</action>  
+					</items>
+				</children>
+			</topmenu>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Virtina_Topnavigation>
+							<title>Topnavigation Module</title>
+							<sort_order>10</sort_order>
+						</Virtina_Topnavigation>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<topnavigation>
+					<file>topnavigation.xml</file>
+				</topnavigation>
+			</updates>
+		</layout>
+    </adminhtml>   
+    
+    <global>
+        <models>
+            <topnavigation>
+                <class>Virtina_Topnavigation_Model</class>
+                <resourceModel>topnavigation_mysql4</resourceModel>
+            </topnavigation>           
+            <topnavigation_mysql4>
+                <class>Virtina_Topnavigation_Model_Mysql4</class>
+                <entities>
+                    <topnavigation>
+                        <table>topnavigation</table>
+                    </topnavigation>                    
+                </entities>
+            </topnavigation_mysql4>
+        </models>
+        <helpers>
+            <topnavigation>
+                <class>Virtina_Topnavigation_Helper</class>
+            </topnavigation>
+        </helpers>        
+        <resources>
+            <topnavigation_setup>
+                <setup>
+                    <module>Virtina_Topnavigation</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </topnavigation_setup>
+            <topnavigation_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </topnavigation_write>
+            <topnavigation_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </topnavigation_read>
+        </resources>
+        <blocks>
+            <topnavigation>
+                <class>Virtina_Topnavigation_Block</class>
+            </topnavigation>
+            <catalog>
+				<rewrite>
+				  <navigation>Virtina_Topnavigation_Block_Categorysidebar</navigation>
+				</rewrite>
+			</catalog>
+			<page>
+				<rewrite>
+				  <html_topmenu>Virtina_Topnavigation_Block_Topnavigation</html_topmenu>
+				</rewrite>
+			</page>
+			<catalog>
+				<rewrite>
+					<product_widget_new>Virtina_Topnavigation_Block_New</product_widget_new>
+				</rewrite>
+			</catalog>	
+			<reports>
+				<rewrite>
+					<product_widget_viewed>Virtina_Topnavigation_Block_Viewed</product_widget_viewed>
+				</rewrite>
+			</reports>	
+			<reports>
+				<rewrite>
+					<product_widget_compared>Virtina_Topnavigation_Block_Compared</product_widget_compared>
+				</rewrite>
+			</reports>	
+			<topnavigation>
+				<rewrite>
+					<categorysidebar>Virtina_Topnavigation_Block_Adminhtml_Topnavigation_Topnavigation</categorysidebar>
+				</rewrite>
+			</topnavigation>									
+        </blocks>
+    </global>
+</config>

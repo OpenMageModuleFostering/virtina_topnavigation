@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+ * Virtina
+ * @package    Virtina_Top_Navigation
+ * @copyright  Copyright (c) 2015-2016 Virtina. (http://www.virtina.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+-->
+<layout>
+	<default>
+		 <reference name="head">
+			<action method="addItem"><type>js</type><name>mage/adminhtml/wysiwyg/tiny_mce/setup.js</name></action>
+			<action method="addItem"><type>js</type><name>tiny_mce/tiny_mce.js</name></action>
+			<action method="addItem"><type>skin_js</type><script>js/topnavigation/jquery/jquery-1.10.2.min.js</script></action>			   
+			<action method="addItem"><type>skin_js</type><script>js/topnavigation/jquery/noconflict.js</script></action>
+		</reference>
+		<update handle="editor"/>
+	</default>
+	<adminhtml_topnavigation_edit>
+		<reference name="head"> 
+			<action method="addJs"><script>topnavigation/selector.js</script></action>
+		</reference>
+	</adminhtml_topnavigation_edit>
+    <adminhtml_topnavigation_index>
+        <reference name="content">
+            <block type="topnavigation/adminhtml_topnavigation" name="productsselector" />
+        </reference>
+        <!-- Tell magento to load extjs -->
+        <reference name="head">
+            <action method="setCanLoadExtJs">
+                <value>1</value>
+            </action>
+        </reference>        
+    </adminhtml_topnavigation_index> 
+</layout>

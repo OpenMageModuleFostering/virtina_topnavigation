@@ -1,0 +1,88 @@
+/**
+ * Virtina
+ * @package    Virtina_Topnavigation
+ * @copyright  Copyright (c) 2015-2016 Virtina. (http://www.virtina.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+.cat-nav-container {
+	font-weight: 600;
+	width: 100%; 
+	padding-bottom: 5%;
+}
+
+.cat-nav-container ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0; 
+}
+
+.cat-nav-container ul li.hover,
+.cat-nav-container ul li:hover { position: relative; z-index: 599; }
+
+.cat-nav-container ul ul{
+	visibility: hidden;
+	position: absolute;
+	z-index: 598;
+}
+.category-listing .cat-nav-container ul ul{
+	visibility: hidden;
+	position: absolute;
+	z-index: 598;
+}
+.cat-nav-container ul li:hover > ul { visibility: visible; }
+
+.col-left .cat-nav-container ul ul { top: 0; left: 100%;  border: 1px solid #cccccc;   background-color: #fff; }
+.category-listing .cat-nav-container ul ul { top: 0; left: 100%;  border: 1px solid #cccccc;   background-color: #fff; }
+.cat-nav-container span, .cat-nav-container a {
+	display: inline-block;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none; }
+
+ul.category-listing .cat-nav-container span, .cat-nav-container a {	padding-left : 10px;}
+
+.cat-nav-container li:hover, .cat-nav-container li.active { background: #F2F2F5; }
+
+.cat-nav-container a {
+    color: #636363;
+    line-height: 160%;
+    padding: 8px 8px 8px 8px;
+    width: 164px; }
+
+.cat-nav-container ul ul li:hover { background: #F2F2F5; }
+
+.cat-nav-container  li.parent {background: url(images/arrow.png) no-repeat scroll 96% center transparent;position: relative;}
+
+@media only screen and (max-width: 770px){
+	.cat-nav-container{
+		display: none;
+	}
+}
+
+.col-right .cat-nav-container ul ul {
+	top: 0;
+    right: 100% !important;
+	visibility: hidden;
+	position: absolute;
+	z-index: 598; 
+	border: 1px solid #cccccc;   
+	background-color: #fff;   
+}
+.col-right .cat-nav-container  li.parent {background: url(images/left-arrow.png) no-repeat scroll 96% center ;position: relative;} 
+
+@media only screen and (min-width: 770px) and (max-width: 1000px){
+	.col3-layout .col-right .cat-nav-container li.parent{background: url(images/arrow.png) no-repeat scroll 96% center ;position: relative;}
+	.col3-layout .col-right .cat-nav-container ul ul {
+		left: 100% !important;
+		right :unset !important;  
+	}	
+}
+
+.col3-layout .cat-nav-container ul ul.level0   {left : 100%;}
+
+.col3-layout .col-right .cat-nav-container ul ul.level0   {right : 100%;left : unset;}
+
+.col2-left-layout .cat-nav-container li.level1.parent {background: url(images/arrow.png) no-repeat scroll 90% center ;}
+
+.col3-layout .col-left .cat-nav-container li.level1.parent {background: url(images/arrow.png) no-repeat scroll 90% center ;}

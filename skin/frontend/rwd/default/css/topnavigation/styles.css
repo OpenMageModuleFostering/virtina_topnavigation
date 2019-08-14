@@ -1,0 +1,56 @@
+/**
+ * Virtina
+ * @package    Virtina_Topnavigation
+ * @copyright  Copyright (c) 2015-2016 Virtina. (http://www.virtina.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+.nav-container .nav-content img {
+	display : inline!important;
+}
+.nav-container .nav-content a {
+	text-decoration: none;
+}
+
+.nav-container .nav-content .level1 img{
+	display : none!important;
+}
+
+.nav-container .block-title {
+    border-top: medium none;
+    width: 90%;
+    padding: 12px 0;
+}
+
+
+/* Right Category Sidebar*/
+.right-nav-container .right-nav-content img {
+	display : inline!important;
+}
+.right-nav-container .right-nav-content a {
+	text-decoration: none;
+}
+
+.right-nav-container .right-nav-content .level1 img{
+	display : none!important;
+}
+
+.right-nav-container .right-block-title {
+    border-top: medium none;
+    width: 90%;
+    padding: 12px 0;
+}
+
+#accordion > li {
+    padding: 8px;
+}
+
+.right-nav-container .level0 ,.right-nav-container .level1{
+    padding-left: 15px;
+}
+/*
+.right-nav-container li.parent {
+    background: transparent url("images/down-arrow.png") no-repeat scroll 96% center;
+}
+*/
+

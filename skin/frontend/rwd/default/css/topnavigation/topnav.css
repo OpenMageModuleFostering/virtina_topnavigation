@@ -1,0 +1,220 @@
+/**
+ * Virtina
+ * @package    Virtina_Topnavigation
+ * @copyright  Copyright (c) 2015-2016 Virtina. (http://www.Virtina.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+.nav,
+.nav a,
+.nav form,
+.nav input,
+.nav li,
+.nav ul {
+  border : none;
+  margin : 0;
+  padding : 0;
+}
+.nav a {
+  text-decoration: none;
+}
+.nav li {
+  list-style : none;
+  float : left;
+}
+
+.nav {
+  cursor : default;
+  display : inline-block;
+  position : relative;
+  z-index : 199;
+  width : 100%;
+  margin-top : 15px;
+}
+
+/* menu links */
+.nav > li > a {
+  color : #636363;
+  display : block;
+  line-height : 30px;
+  padding : 0 25px;
+  position : relative;
+  transition : all .3s ease;
+  z-index : 510;
+  font-family : "Raleway","Helvetica Neue",Verdana,Arial,sans-serif;
+  font-size : 14px;
+  text-decoration : none; 
+  text-transform : uppercase; 
+}
+.nav > li > a:focus,
+.nav > li:hover > a {
+  background: #f2f2f5;
+}
+.nav a:hover, .nav li:hover > a {
+    color: #3399cc;
+}
+
+.nav > li:first-child > a {
+  border-left : none;
+  border-radius : 3px 0 0 3px;
+}
+.nav > li:last-child > a {
+  border-left : none;
+  border-radius : 0 3px 3px 0;
+}
+
+/* menu dropdown */
+.mega-menu {
+  background : #fff;
+  border : 1px solid #ddd;
+  border-radius : 0 0 3px 3px;
+  opacity : 0;
+  position : absolute;
+  transition : all .3s ease .15s;
+  visibility : hidden;
+  width : 100%;
+  left : 0;
+  top : 25;
+  z-index : 550;  
+}
+li:hover > .mega-menu {
+  opacity : 1;
+  overflow : visible;
+  visibility : visible;
+}
+
+/* menu content */
+.nav-column {
+  float : left;
+  padding : 1.5%;
+  width : 100%;
+  box-shadow: 2px 2px 3px #8a8a8a;
+}
+.nav-column a {
+  color : #888;
+  display : block;
+  line-height : 26px;
+  font-family : Arial,Helvetica,sans-serif;
+  font-size : 14px;
+  text-decoration : none; 
+  text-transform : capitalize; 
+}
+.nav-column a:hover {
+  color : #ff722b;
+}
+.nav-column-title {
+  color : #636363;
+  font-size : 16px;
+  font-weight : bold;
+  line-height : 25px;
+  margin : 12px 0 10px;
+  text-align :center;
+}
+.nav-column-sub > li {
+  display : inline;
+  float : left;
+  margin-right : 3%;
+ /* width : 10.11%; */
+}
+.product-name a{
+  text-align : center;
+}
+ul.wysiwyg_content {
+  width : 100%;
+}
+
+.product-info {
+    text-align : center !important;
+    width : 90% !important;
+}
+
+.top-menu .products-grid > li:nth-child(3n+1) {
+    clear : none;
+}
+
+.top-menu .products-grid > li {
+    width : 13%;
+    margin-bottom : 1% !important; 
+    min-height : 254px!important;
+}
+
+.top-menu .products-grid .product-info{
+	padding-bottom: 0px !important; 
+	min-height: 50% !important;
+	padding-top : 5% !important;
+}
+
+.top-menu .product-info .actions{
+	display : none;
+}
+
+.top-menu .products-grid > li:nth-child(3n) {
+    margin-right: 3%;
+}
+.menu-wrapper .widget-title > h2 {
+    text-align: center;
+}
+@media screen and (max-width:770px) {
+  .nav{
+	display : none;
+  }
+}
+@media only screen and (max-width: 770px) {
+  .nav-primary {
+    display : block;
+    margin-top : 15px;
+  }
+}
+@media only screen and (min-width: 771px) {
+  #nav {
+    display : none;
+  }
+}
+@media screen and (min-width:771px) and (max-width:796px){
+  .nav > li > a {
+    font-size : 11px;
+    padding: 0 8px;
+  }
+}
+@media screen and (min-width:797px) and (max-width:1000px){
+  .nav > li > a {
+    font-size : 12px;
+    padding: 0 10px;
+  }
+}
+@media screen and (min-width:1001px) and (max-width:1133px){
+  .nav > li > a {
+    font-size : 13px;
+    padding: 0 10px;
+  } 
+}
+@media screen and (min-width:771px) and (max-width:1133px){
+  .nav-column a{
+	line-height : 23px; 
+	font-size : 12px; 
+  }
+  .top-menu .products-grid > li{
+	min-height : 220px !important;
+  }
+}
+.wysiwyg_content > li{
+	width : 100%;
+}
+
+.top-menu .products-grid li.four{
+	width : 21.47% !important;
+	min-height: 200px !important;
+}
+.top-menu .products-grid li.five{
+	width : 16.42% !important;
+	min-height: 222px !important;	
+}
+.top-menu .products-grid li.six{
+	width : 13.19% !important;
+}
+.nav-column a.product-image{
+	margin: 0 auto;
+}
+.category-listing .item{
+	width: 25%;
+}

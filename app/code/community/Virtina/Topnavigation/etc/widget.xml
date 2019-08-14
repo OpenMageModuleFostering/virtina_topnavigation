@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Virtina
+ * @package    Virtina_Topnavigation
+ * @copyright  Copyright (c) 2015-2016 Virtina. (http://www.virtina.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+-->
+<widgets>
+   <new_products_topnavigation type="topnavigation/new" module="topnavigation">
+       <name>Virtina Catalog New Products List</name>
+       <description>List of Products that are set as New</description>
+       <is_email_compatible>1</is_email_compatible>
+       <parameters>
+            <display_type translate="label description">
+                <required>1</required>
+                <visible>1</visible>
+                <label>Display Type</label>
+                <type>select</type>
+                <value>all_products</value>
+                <values>
+                    <default translate="label">
+                        <value>all_products</value>
+                        <label>All products</label>
+                    </default>
+                    <item translate="label">
+                        <value>new_products</value>
+                        <label>New products</label>
+                    </item>
+                </values>
+                <description>All products - recently added products, New products - products marked as new</description>
+            </display_type>
+            <products_count translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <value>10</value>
+                <label>Number of Products to Display</label>
+                <type>text</type>
+            </products_count>
+            
+			<column_count translate="label">
+               <required>1</required>
+               <visible>1</visible>
+               <value>6</value> <!-- default parameter value -->
+               <label>The number of Products in a row</label>
+               <type>text</type>
+           </column_count>   
+                    
+            <template>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Template</label>
+                <type>select</type>
+                <value>topnavigation/new_grid.phtml</value>
+                <values>
+                    <default translate="label">
+                        <value>topnavigation/new_grid.phtml</value>
+                        <label>New Products Grid Template</label>
+                    </default>
+                    <list translate="label">
+                        <value>topnavigation/new_grid.phtml</value>
+                        <label>New Products List Template</label>
+                    </list>
+                </values>
+            </template>
+            <cache_lifetime translate="label description">
+                <label>Cache Lifetime (Seconds)</label>
+                <description>86400 by default, if not set. To refresh instantly, Clear the Blocks HTML Output Cache.</description>
+                <visible>1</visible>
+                <type>text</type>
+            </cache_lifetime>
+         </parameters>
+   </new_products_topnavigation>
+   
+   <recently_viewed_topnavigation type="topnavigation/viewed" translate="name description" module="topnavigation">
+        <name>Virtina Recently Viewed Products</name>
+        <description>List of Products Recently Viewed by Visitor</description>
+        <parameters>
+            <page_size translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <value>5</value>
+                <label>Number of Products to display</label>
+                <type>text</type>
+            </page_size>
+			<column_count translate="label">
+               <required>1</required>
+               <visible>1</visible>
+               <value>6</value> <!-- default parameter value -->
+               <label>The number of Products in a row</label>
+               <type>text</type>
+            </column_count>            
+            <template>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Template</label>
+                <type>select</type>
+                <value>topnavigation/viewed_grid.phtml</value>
+                <values>
+                    <default translate="label">
+                        <value>topnavigation/viewed_grid.phtml</value>
+                        <label>Viewed Products Grid Template</label>
+                    </default>
+                    <list translate="label">
+                        <value>reports/widget/compared/content/viewed_list.phtml</value>
+                        <label>Viewed Products List Template</label>
+                    </list>
+                </values>
+            </template>
+        </parameters>
+    </recently_viewed_topnavigation>
+    
+    <recently_compared_topnavigation type="topnavigation/compared" translate="name description" module="topnavigation">
+        <name>Virtina Recently Compared Products</name>
+        <description>List of Products Recently Compared and Removed from the Compare List by Visitor</description>
+        <parameters>
+            <page_size translate="label">
+                <required>1</required>
+                <visible>1</visible>
+                <value>5</value>
+                <label>Number of Products to display</label>
+                <type>text</type>
+            </page_size>
+			<column_count translate="label">
+               <required>1</required>
+               <visible>1</visible>
+               <value>6</value> <!-- default parameter value -->
+               <label>The number of Products in a row</label>
+               <type>text</type>
+            </column_count>            
+            <template>
+                <required>1</required>
+                <visible>1</visible>
+                <label>Template</label>
+                <type>select</type>
+                <value>topnavigation/compared_grid.phtml</value>
+                <values>
+                    <default translate="label">
+                        <value>topnavigation/compared_grid.phtml</value>
+                        <label>Compared Products Grid Template</label>
+                    </default>
+                    <list translate="label">
+                        <value>topnavigation/compared_list.phtml</value>
+                        <label>Compared Products List Template</label>
+                    </list>
+                </values>
+            </template>
+        </parameters>
+    </recently_compared_topnavigation>
+</widgets>

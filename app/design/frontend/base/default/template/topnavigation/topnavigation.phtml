@@ -1,0 +1,117 @@
+<?php
+/**
+ * Virtina
+ * @package    Virtina_Topnavigation
+ * @copyright  Copyright (c) 2015-2016 Virtina. (http://www.virtina.com)
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+?>
+<!-- Desktop View -->
+<?php $_menuItems = $this->getMenuitem() ?>
+<?php if($_menuItems): ?>
+    <div class="nav-container" role="navigation">
+		<ul class="nav" role="menubar">
+			<?php foreach ($_menuItems as $_menuItem) : ?>
+				<li role="menuitem">
+				<?php $menuItemsType = $_menuItem->getContentType(); ?>
+				<?php if ($menuItemsType == 1){ ?>					
+						<?php $url = Mage::getBaseUrl().$_menuItem->getLink()?>
+						<a href="<?php echo $url ?>"><?php echo $_menuItem->getName()?></a> 
+					
+				<?php } else if ($menuItemsType == 2){ ?>						
+						<a><?php echo $_menuItem->getName()?></a> 
+						<?php $productIds = $_menuItem->getProductIds()?>
+						<?php $productsForDisplay = explode(",",$productIds);?>
+						<div class="mega-menu top-menu" aria-hidden="true" role="menu">
+							<div class="nav-column widget">
+								<div class="widget-title">
+									<h2><?php echo $_menuItem->getProductBoxTitle()?></h2>
+								</div>
+								<?php $_columnCount = $_menuItem->getColumnCount()?>
+								<?php  if($_columnCount==4): 
+										$_rowCountClass = ' four';
+										elseif($_columnCount==5): 
+										$_rowCountClass = ' five';
+										else: 
+										$_rowCountClass = ' six';
+								  endif; ?>
+								<?php $i=0; foreach ($productsForDisplay as $productId) : ?>
+									<?php if ($i++%$_columnCount==0): ?>
+									<ul class="products-grid">
+									<?php endif ?>
+											<li class="item<?php if(($i-1)%$_columnCount==0): ?> first<?php elseif($i%$_columnCount==0): ?> last<?php endif; ?><?php echo $_rowCountClass?>">										
+												<?php $product = Mage::getModel('catalog/product')->load($productId); ?>
+												<a href="<?php echo $product->getProductUrl() ?>" title="<?php echo $product->getName()?>" class="product-image">
+													<img src="<?php echo $this->helper('catalog/image')->init($product, 'small_image')->resize(95) ?>" alt="<?php echo $productName ?>" />
+												</a>
+												<?php $productName = $product->getName();?>
+												<div class="product-info">
+													<h3 class="product-name"><a href="<?php echo $product->getProductUrl() ?>" title="<?php echo $this->stripTags($product->getName(), null, true) ?>"><?php echo $this->helper('catalog/output')->productAttribute($product, $product->getName() , 'name') ?></a></h3>												                                   
+												</div>
+											</li>
+									<?php if ($i%$_columnCount==0 || $i==count($_products)): ?>
+									</ul>
+									<?php endif ?>
+								<?php endforeach; ?>
+							</div>
+						</div>	
+					<?php } else if ($menuItemsType == 3){ ?>
+						<a><?php echo $_menuItem->getName()?></a>
+						<div class="mega-menu" aria-hidden="true" role="menu">
+							<div class="top-menu nav-column">						 
+								<ul class="wysiwyg_content" >
+									<li role="menuitem">										
+										<?php $_cmsHelper = Mage::helper('cms');?>
+										<?php $_process = $_cmsHelper->getBlockTemplateProcessor();?>
+										<?php if($_process->filter($_menuItem["description"])): ?>
+											<?php echo $_process->filter($_menuItem["description"]); ?>
+										<?php else: ?>
+											<p class="empty"><?php echo $this->__('You have no items to show.') ?></p>
+										<?php endif; ?>
+									</li>
+								</ul>
+							</div>
+						</div>		
+					<?php } else {?>
+						<a><?php echo $_menuItem->getName()?></a> 
+						<?php $categoryIds = $_menuItem->getCategoryIds()?>
+						<?php $categoriesForDisplay = explode(",",$categoryIds);?>
+						<div class="mega-menu top-menu" aria-hidden="true" role="menu">
+							<div class="nav-column widget">								
+								<ul class="category-listing">
+									<li class="item">											
+										<?php $category = Mage::getModel('catalog/category')->load($categoryId); ?>
+										<?php $categoryName = $category->getName();?>									
+										<?php $sidebarBlock = $this->getLayout()->getBlockSingleton('Virtina_Topnavigation_Block_Adminhtml_Topnavigation_Topnavigation');?>
+										<?php $_sidemenu = $sidebarBlock->categoriesMenuHtml(0,'level-top',0 ,$categoriesForDisplay ); ?>
+										<?php $configTitle = $_menuItem->getCategoryTitle()?>
+										<?php if($_sidemenu): ?>
+											<div class="cat-nav-container">
+												<div class="block-title">
+													<strong><span><?php echo $configTitle ?></span></strong>
+												</div>
+												<ul class="nav-content">
+													<?php echo $_sidemenu ?>
+												</ul>
+											</div>
+										<?php endif ?>
+									</li>
+								</ul>
+							</div>
+						</div>		
+					<?php }?>
+				</li>				
+			<?php endforeach; ?>
+        </ul>
+    </div>
+
+	<!-- Mobile View -->
+	<?php $_menu = $this->getHtml('level-top') ?>
+	<?php if($_menu): ?>
+		<nav id="nav" class="mobile-nav">
+			<ol class="nav-primary">
+				<?php echo $_menu ?>
+			</ol>
+		</nav>
+	<?php endif ?>
+<?php endif ?>
