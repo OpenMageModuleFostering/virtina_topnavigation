@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Virtina_Topnavigation",
+    "name": "OpenMageModuleFostering\/Virtina_Topnavigation",
     "type": "magento-module",
     "license": "OSL-3.0",
     "homepage": "",
     "description": "Custom Mega Menu extension allows you to create beautiful horizontal top menu with easy customization",
     "authors": [
-    {
-        "name": "Virtina",
-        "email": "gigijk@virtina.com"
-    }
-],
+        {
+            "name": "Virtina",
+            "email": "gigijk@virtina.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
